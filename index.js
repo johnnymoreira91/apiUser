@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const router = require('./src/controllers/authController');
+const routeAuth = require('./src/controllers/authController');
+const routeProject = require('./src/controllers/projectController');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use('/auth', router);
+app.use('/auth', routeAuth);
+app.use('/', routeProject);
 
 
 app.listen(3001, () => {
